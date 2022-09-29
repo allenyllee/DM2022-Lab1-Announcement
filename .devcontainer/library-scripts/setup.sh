@@ -6,11 +6,14 @@ PROJRCT_DIR=$(pwd)
 echo "BASEDIR" $BASEDIR
 echo "PROJRCT_DIR" $PROJRCT_DIR
 
-# create .ssh dir
+# create .ssh dir and copy host ssh key into container ssh dir
 mkdir ~/.ssh
+cp -RT ~/.ssh_host ~/.ssh
+chown $(id -u -n) ~/.ssh
+chmod -R 700 ~/.ssh
 
 # setup ssh agent
-$BASEDIR/setup-ssh-agent.sh
+# $BASEDIR/setup-ssh-agent.sh
 
 # add project dir to git safe directory
 git config --global --add safe.directory $PROJRCT_DIR
