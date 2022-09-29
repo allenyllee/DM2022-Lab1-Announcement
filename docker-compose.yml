@@ -1,0 +1,27 @@
+version: '3'
+services:
+  notebook:
+    # image: pbatey/jupyter-datascience-notebook-gpu:2021apr07
+    build:
+      context: .devcontainer
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - .:/home/jovyan/workspace
+      - ../:/home/jovyan/work
+    ports:
+      - 0.0.0.0:8900:8888
+      # - 8501:8501
+    # enable passwordless sudo
+    # environment:
+    #   - GRANT_SUDO=yes
+    # user: root
+    command:
+      start-notebook.sh --NotebookApp.password='sha1:a0268751f102:c4b524e0443d0634f758af80fb2f7ce131ba220c'
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]
