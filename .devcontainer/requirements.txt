@@ -25,3 +25,7 @@
 # torchaudio>=0.10.1+cu113
 # torchvision>=0.11.2+cu113
 
+plotly>=5.10.0
+nltk>=3.7
+sklearn>=0.0
+
