@@ -10,7 +10,7 @@ services:
       - .:/home/jovyan/workspace
       - ../:/home/jovyan/work
       - type: bind
-        source: C:\Users\Allen Lee\.ssh\
+        source: /home/allenyl/.ssh
         target: /home/jovyan/.ssh_host
     ports:
       - 0.0.0.0:8900:8888
